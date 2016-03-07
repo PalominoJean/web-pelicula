@@ -82,11 +82,13 @@ DATABASES = {
     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     #}
     'default':{
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME':'pelicula_db',
-        'USER':'jin',
-        'PASSWORD':'zhydovanarvain',
-        'HOST':'localhost',
+        #'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'ENGINE':'django.db.backends.sqlite3',
+        #'NAME':'pelicula_db',
+        'NAME':os.path.join(BASE_DIR,'db.sqlite3'),
+        #'USER':'jin',
+        #'PASSWORD':'zhydovanarvain',
+        #'HOST':'localhost',
         'PORT':''
     }
 }
@@ -135,5 +137,3 @@ MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),"miweb00/pelicula/media")
 #MEDIA_ROOT= '/media/'
 #MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),"media")
-
-print(STATIC_URL)

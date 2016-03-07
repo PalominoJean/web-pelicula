@@ -3,41 +3,35 @@ from django.utils import timezone
 
 # Create your models here.
 class Usuario(models.Model):
-    id_usuario=models.IntegerField()
     nombre=models.CharField(max_length=30)
     contrasenia=models.CharField(max_length=30)
     def __str__(self):
         return self.nombre
 
-class Director(models.Model):
-    id_director=models.CharField(max_length=10)
-    nombre=models.CharField(max_length=30)
-    apellido=models.CharField(max_length=30)
+class Rol(models.Model):
+    nombre=models.CharField(max_length=20)
     def __str__(self):
         return self.nombre
 
-class Actor(models.Model):
-    id_autor=models.IntegerField()
+class Persona(models.Model):
+    roles=models.ManyToManyField(Rol)
     nombre=models.CharField(max_length=30)
     apellido=models.CharField(max_length=30)
     def __str__(self):
-        return self.nombre
+        return self.nombre+" "+self.apellido
 
 class Genero(models.Model):
-    id_genero=models.IntegerField()
     nombre=models.CharField(max_length=30)
     def __str__(self):
         return self.nombre
 
 class Pelicula(models.Model):
-    id_pelicula=models.IntegerField()
     titulo=models.CharField(max_length=30)
     fecha_publicacion=models.DateTimeField(default=timezone.now)
     anio_estreno=models.IntegerField()
     usuario=models.ForeignKey(Usuario,on_delete=models.CASCADE)
     portada=models.ImageField(upload_to='portada')
-    directores=models.ManyToManyField(Director)
-    actores=models.ManyToManyField(Actor)
+    personas=models.ManyToManyField(Persona)
     generos=models.ManyToManyField(Genero)
     def __str__(self):
         return self.titulo
