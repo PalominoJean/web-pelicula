@@ -1,0 +1,36 @@
+{% extends 'pelicula/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <nav>
+        <ul>
+            <li><a class="active" href="/">Fecha de Adicion</a></li>
+            <li><a href="/">Genero</a></li>
+            <li><a href="/">Nombre</a></li>
+            <li><a href="/">Año de Estreno</a></li>
+        </ul>
+    </nav>
+    <section>
+        {% for pelicula in peliculas %}
+            <article>
+                <section ><img src="{{ MEDIA_URL }}{{pelicula.portada }}"></section>
+                <section>{{ pelicula.titulo }}</section>
+                <section>{{ pelicula.anio_estreno }}</section>
+
+            </article>
+        {% endfor %}
+        <br><br>
+        <div>
+            <span>
+                {% if peliculas.has_previous %}
+                    <a href="?page={{ peliculas.previous_page_number }}">Anterior </a>
+                {% endif %}
+                <span>
+                    Pagina {{ peliculas.number }} de {{ paginador.num_pages }}
+                </span>
+                {% if peliculas.has_next %}
+                    <a href="?page={{ peliculas.next_page_number }}"> Siguiente</a>
+                {% endif %}
+            </span>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,36 @@
+@import "login.css";
+@import "pelicula.css";
+@font-face {font-family: dayslater; src:url(../fonts/DaysLater.ttf);}
+@font-face {font-family: droidsans; src:url(../fonts/DroidSans.ttf);}
+
+* {margin:0; padding:0;  border: 0;}
+body{background:url("../img/wallhaven-327570.jpg") no-repeat fixed center;
+    margin:1em;
+    padding:1em;
+    font-family:dayslater;
+    text-align: center;
+    color: white;
+    font-size: 1.3em;}
+
+/*Header*/
+header{padding:1em; text-shadow: .3em .3em .3em black, -0.3em -0.3em .3em black; color:white; text-align:left}
+header h1{font-size:6em;}
+
+/*Nav*/
+nav{background: none;}
+ul{list-style-type: none}
+li{display: inline-block;}
+li a{margin-bottom:.3em; padding:.5em; background:darkgrey; display: inline-block; width: 18em; text-decoration: none; color: white}
+li a:hover{background: white; color: black}
+
+/*Section*/
+section{display: inline-block;}
+
+/*Articulo*/
+article{margin:1em; display:inline-block; height: 20em; width: 12em;}
+article section{margin-bottom: .1em; margin-top:.1em;display: block; background: black;}
+article section img{width: 100%;}
+
+
+.active{background: black; color: white}
+
