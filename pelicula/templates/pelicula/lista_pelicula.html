@@ -3,10 +3,10 @@
 {% block content %}
     <nav>
         <ul>
-            <li><a class="active" href="/">Fecha de Adicion</a></li>
-            <li><a href="/">Genero</a></li>
-            <li><a href="/">Nombre</a></li>
-            <li><a href="/">Año de Estreno</a></li>
+            <li><a href="{% url 'lista_pelicula' pelicula_pk=1 %}">Fecha de Adicion</a></li>
+            <li><a href="{% url 'lista_pelicula' pelicula_pk=2 %}">Genero</a></li>
+            <li><a href="{% url 'lista_pelicula' pelicula_pk=3 %}">Titulo</a></li>
+            <li><a href="{% url 'lista_pelicula' pelicula_pk=4 %}">Año de Estreno</a></li>
         </ul>
     </nav>
     <section>
@@ -15,7 +15,6 @@
                 <section ><img src="{{ MEDIA_URL }}{{pelicula.portada }}"></section>
                 <section>{{ pelicula.titulo }}</section>
                 <section>{{ pelicula.anio_estreno }}</section>
-
             </article>
         {% endfor %}
         <br><br>
