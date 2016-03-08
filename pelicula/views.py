@@ -15,16 +15,16 @@ def lista_fechaPublicacion(request):
         peliculas=paginador.page(1)
     except EmptyPage:
         peliculas=paginador.page(paginador.num_pages)
-    return render(request, 'pelicula/lista_pelicula.html',{'peliculas':peliculas,'paginador':paginador})
+    return render(request, 'pelicula/lista_pelicula.html', {'peliculas':peliculas,'paginador':paginador})
 
-def lista_pelicula(request,pelicula_pk):
-    if pelicula_pk==1:
+def lista_pelicula(request, pelicula_pk):
+    if pelicula_pk=='1':
         lista_peliculas=Pelicula.objects.all().order_by('-fecha_publicacion')
-    if pelicula_pk==2:
+    elif pelicula_pk=='2':
         lista_peliculas=Pelicula.objects.all().order_by('generos')
-    if pelicula_pk==3:
+    elif pelicula_pk=='3':
         lista_peliculas=Pelicula.objects.all().order_by('titulo')
-    if pelicula_pk==4:
+    else:
         lista_peliculas=Pelicula.objects.all().order_by('-anio_estreno')
 
     paginador=Paginator(lista_peliculas,12)
